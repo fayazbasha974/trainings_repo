@@ -9,9 +9,12 @@ router.post('/:path', async (req, res) => {
         case 'user': table = process.env.USER_TABLE;
         break;
     }
+    const item = req.body;
+    item.cart = [];
+    item.orders = [];
     const params = {
         TableName: table,
-        Item: req.body
+        Item: item
     }
     try {
         const result = await queries.put(params);
