@@ -1,0 +1,113 @@
+<section class="detailed-webinar-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="webinarCard">
+                    <h1 class="mb-4">{{webinar.title}}</h1>
+                    <img src="{{webinar.webinarImageUrl}}" alt="" class="img-fluid webinarCard-img mb-3">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-6 col-md-6  mb-4">
+                            <div class="webinarInfo"><i class="fas fa-user-tie"></i> {{webinar.author}}</div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6  mb-4">
+                            <div class="webinarInfo"><i class="far fa-calendar-plus"></i> Add To Calander</div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6  mb-4">
+                            <div class="webinarInfo"><i class="fas fa-share-alt"></i> Refer a Friend</div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6  mb-4">
+                            <div class="webinarInfo"><i class="fas fa-desktop"></i> ID:{{webinar.id}}</div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6  mb-4">
+                            <div class="webinarInfo"><i class="fas fa-calendar-alt"></i> {{webinar.date}}</div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6  mb-4">
+                            <div class="webinarInfo"><i class="fas fa-clock"></i> {{webinar.pdtTime}} PDT |
+                                {{webinar.edtTime}} EDT</div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6  mb-4">
+                            <div class="webinarInfo"><i class="fas fa-stopwatch"></i> {{webinar.duration}} MINS</div>
+                        </div>
+                        <div class="col-12">
+                            <h3>Description</h3>
+                            <p class="mb-5">{{webinar.description}}</p>
+                        </div>
+                        <div class="col-12" [innerHtml]="webinar.htmlContent">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 ">
+                <div class="webinar-price">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="mb-4">Webinar Subscription</h2>
+                        </div>
+
+                        <div class="col-lg-12 ">
+                            <div class="webinar-price-title mb-4"><i class="fas fa-headset"></i> Live Webinar</div>
+                            <div class="price-list mb-4">
+                                <div class="radio mb-2">
+                                    <input id="radio-1" name="radio" type="radio" checked>
+                                    <label for="radio-1" class="radio-label"> One Attendee -
+                                        ${{webinar.liveOneAttendeePrice}} </label>
+                                </div>
+
+                                <div class="radio mb-2">
+                                    <input id="radio-2" name="radio" type="radio">
+                                    <label for="radio-2" class="radio-label"> Group Attendee -
+                                        ${{webinar.liveOneAttendeePrice}} </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="webinar-price-title mb-4"><i class="fas fa-record-vinyl"></i> Recorded Webinar
+                            </div>
+                            <div class="price-list mb-4">
+                                <div class="radio mb-2">
+                                    <input id="radio-3" name="radio" type="radio" checked>
+                                    <label for="radio-3" class="radio-label"> One Attendee -
+                                        ${{webinar.recOneAttendeePrice}} </label>
+                                </div>
+
+                                <div class="radio mb-2">
+                                    <input id="radio-4" name="radio" type="radio">
+                                    <label for="radio-4" class="radio-label"> Group Attendee -
+                                        ${{webinar.recgroupAttendeesPrice}} </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="webinar-price-title mb-4"><i class="fas fa-headset"></i> + <i
+                                    class="fas fa-record-vinyl"></i> Combo Webinar</div>
+                            <div class="price-list">
+                                <div class="radio mb-2">
+                                    <input id="radio-5" name="radio" type="radio" checked>
+                                    <label for="radio-5" class="radio-label"> One Attendee -
+                                        ${{webinar.comboOneAttendeePrice}} </label>
+                                </div>
+                                <div class="radio mb-2">
+                                    <input id="radio-6" name="radio" type="radio">
+                                    <label for="radio-6" class="radio-label"> Group Attendee -
+                                        ${{webinar.combogroupAttendeesPrice}} </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <button class="btn add-cart-btn mb-3">Add To Cart</button>
+                                <a href="#" class="btn text-light"><i class="fas fa-undo-alt"></i> Refund Policy</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
