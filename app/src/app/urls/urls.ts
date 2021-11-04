@@ -4,5 +4,6 @@ export const urls = {
     deleteWebinar: 'webinars/delete/',
     adminLogin: 'login/admin',
     usersLogin: 'login/user',
-    usersSignup: 'signup/user'
+    usersSignup: 'signup/user',
+    addToCart: 'addToCart/'
 }

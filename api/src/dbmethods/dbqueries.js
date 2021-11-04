@@ -17,6 +17,10 @@ const put = (params) => {
     return dynamoClient.put(params).promise();
 }
 
+const update = (params) => {
+    return dynamoClient.update(params).promise();
+}
+
 const deleteItem = (params) => {
     return dynamoClient.delete(params).promise();
 }
@@ -55,5 +59,6 @@ module.exports = {
     scan,
     put,
     uploadToS3,
-    deleteItem
+    deleteItem,
+    update
 }

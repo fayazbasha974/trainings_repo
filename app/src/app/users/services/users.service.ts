@@ -25,4 +25,9 @@ export class UsersService {
     return this.apiService.post(url, payload);
   }
 
+  addToCart(id: string, payload: any): Observable<any> {
+    const url = `${urls.addToCart}${id}`;
+    return this.apiService.post(url, payload);
+  }
+
 }

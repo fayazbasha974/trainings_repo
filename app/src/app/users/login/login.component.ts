@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
 
   loginFunc() {
     this.usersService.login(this.formGroup.value).subscribe(response => {
+      localStorage.setItem('token', response.token);
       this.toasterService.success(response.message);
     }, error => {
       this.toasterService.error('Invalid Credentials');
