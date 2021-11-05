@@ -43,10 +43,11 @@ router.get('/', verifyToken, async (req, res) => {
         const result = await queries.scan(params);
         const user = result.Items[0];
         if (user && user.cart && user.cart.length) {
-            const webinarIds = {};
+            const webinarIds = {}, paymentOptions = {};
             user.cart.map((value, index) => {
                 var titleKey = ":titlevalue"+index;
                 webinarIds[titleKey.toString()] = value.id;
+                paymentOptions[value.id] = value.paymentFor;
             });
             const webinarParams = {
                 TableName: webinarTable,
@@ -55,7 +56,10 @@ router.get('/', verifyToken, async (req, res) => {
             };
             try {
                 const webinars = await queries.scan(webinarParams);
-                res.json(webinars);
+                res.json({
+                    Items: webinars.Items,
+                    paymentOptions
+                });
             } catch(error) {
                 res.status(500).json(error);
             }

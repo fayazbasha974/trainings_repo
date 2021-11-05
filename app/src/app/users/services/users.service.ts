@@ -30,4 +30,9 @@ export class UsersService {
     return this.apiService.post(url, payload);
   }
 
+  getCart(): Observable<any> {
+    const url = `${urls.getCartDetails}`;
+    return this.apiService.get(url);
+  }
+
 }

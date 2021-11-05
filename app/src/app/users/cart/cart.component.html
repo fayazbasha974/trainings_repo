@@ -2,22 +2,22 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 cart-item-list">
-                <div class="cart-item mb-4">
+                <div class="cart-item mb-4" *ngFor="let webinar of webinars">
                     <div class="row ">
                         <div class="col-lg-3 col-md-3 mb-4 mb-md-0">
-                            <img src="https://images.pexels.com/photos/716281/pexels-photo-716281.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="img-fluid" >
+                            <img src="{{webinar.webinarImageUrl}}" alt="" class="img-fluid" >
                         </div>
                         <div class="col-lg-9 col-md-9">
-                            <h2 class="mb-3">Digital Photography for Beginners with DSLR cameras</h2>
-                            <h3 class="mb-3">Live Version - One Attendee - 100</h3>
+                            <h2 class="mb-3">{{webinar.title}}</h2>
+                            <h3 class="mb-3"></h3>
                             <h6 class="mb-3">#0912007</h6>
                             <div class="row">
                                 <div class="cart-item-cost col-xl-3 col-lg-2 col-md-2 col-sm-12 mb-4 mb-md-0">
-                                    <p>$200</p>
+                                    <p>${{webinar[paymentOptions[webinar.id]]}}</p>
                                 </div>
-                                <div class="cart-input col-xl-5 col-lg-6 col-md-6 col-sm-12 text-center mb-4 mb-md-0">
+                                <!-- <div class="cart-input col-xl-5 col-lg-6 col-md-6 col-sm-12 text-center mb-4 mb-md-0">
                                     <span class="input-number-decrement">–</span><input class="input-number" type="text" value="1" min="0" max="10"><span class="input-number-increment">+</span>
-                                </div>
+                                </div> -->
                                 <div class="cart-action col-xl-4 col-lg-4 col-md-4 col-sm-12 text-center text-md-right ">
                                     <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Remove</button>
                                 </div>
@@ -30,13 +30,13 @@
             <div class="col-lg-4">
                 <div class="cart-price">
                    <div class="cart-price-items">
-                       <span>Price (1 Items)</span>
-                       <span>$ 23</span>
+                       <span>Price ({{webinars.length}} Items)</span>
+                       <!-- <span>$ 23</span> -->
                    </div>
                    <hr>
                    <div class="cart-price-total mb-4">
                         <span>Total Cost</span>
-                        <span>$ 23</span>
+                        <span>$ {{totalPrice}}</span>
                     </div>
                     <button class="btn btn-order btn-block">Place order</button>
                 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  webinars: any = [];
+  paymentOptions: any = {};
+  totalPrice: number = 0;
+
+  constructor(private readonly usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.getCartDetails();
+  }
+
+  getCartDetails() {
+    this.usersService.getCart().subscribe(response => {
+      console.log(response);
+      this.webinars = response.Items;
+      this.paymentOptions = response.paymentOptions;
+      this.getTotalAmount();
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getTotalAmount() {
+    this.webinars.map((webinar: any) => {
+      this.totalPrice += Number(webinar[this.paymentOptions[webinar.id]]);
+    });
   }
 
 }

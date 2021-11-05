@@ -5,5 +5,6 @@ export const urls = {
     adminLogin: 'login/admin',
     usersLogin: 'login/user',
     usersSignup: 'signup/user',
-    addToCart: 'cart/'
+    addToCart: 'cart/',
+    getCartDetails: 'cart/'
 }
