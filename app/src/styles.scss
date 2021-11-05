@@ -1159,7 +1159,7 @@ body::-webkit-scrollbar-track {
 
   /* CART CSS */
 .cart-list{
-	padding: 3.5rem 0;
+	padding: 8.5rem 0;
 }
 
 
@@ -1492,3 +1492,8 @@ body::-webkit-scrollbar-track {
 .pointer {
 	cursor: pointer;
 }  
+
+.error-text {
+	color: red;
+	font-size: 14px;
+}

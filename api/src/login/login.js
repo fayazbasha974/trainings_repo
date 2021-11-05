@@ -24,7 +24,8 @@ router.post('/:path', async (req, res) => {
         if (data.Items.length) {
             const jwtData = {
                 username: data.Items[0].username,
-                role: data.Items[0].role
+                role: data.Items[0].role,
+                cart: data.Items[0].cart ? data.Items[0].cart.length : undefined
             };
             res.json({
                 message: 'login Successful',

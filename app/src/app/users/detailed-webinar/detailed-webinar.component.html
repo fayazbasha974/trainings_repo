@@ -99,6 +99,7 @@
                         <div class="col-md-12">
                             <div class="text-center">
                                 <button class="btn add-cart-btn mb-3" (click)="addToCart()">Add To Cart</button>
+                                <p class="error-text" *ngIf="showError">Please login to Add to Cart</p>
                                 <a href="#" class="btn text-light"><i class="fas fa-undo-alt"></i> Refund Policy</a>
                             </div>
                         </div>

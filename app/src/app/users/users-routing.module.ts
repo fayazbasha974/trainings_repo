@@ -6,6 +6,7 @@ import { WebinarsListComponent } from './webinars-list/webinars-list.component';
 import { DetailedWebinarComponent } from './detailed-webinar/detailed-webinar.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: UsersComponent, children: [
@@ -13,7 +14,8 @@ const routes: Routes = [
     { path: 'webinars-list', component: WebinarsListComponent },
     { path: 'webinar-detail', component: DetailedWebinarComponent },
     { path: 'aboutus', component: AboutUsComponent },
-    { path: 'contactus', component: ContactUsComponent }
+    { path: 'contactus', component: ContactUsComponent },
+    { path: 'cart', component: CartComponent }
   ] }
 ];
 

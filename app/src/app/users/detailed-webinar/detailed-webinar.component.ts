@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -11,9 +11,10 @@ export class DetailedWebinarComponent implements OnInit {
 
   webinar: any = {};
   id: string = '';
-
+  showError: boolean = false;
   constructor(private readonly activeRoute: ActivatedRoute,
-    private readonly usersService: UsersService) { }
+    private readonly usersService: UsersService,
+    private readonly router: Router) { }
 
   ngOnInit(): void {
     // console.log(this.activeRoute.snapshot.queryParams);
@@ -34,14 +35,22 @@ export class DetailedWebinarComponent implements OnInit {
   }
 
   addToCart() {
-    const payload = {
-      paymentFor: 'recOneAttendeePrice'
-    };
-    this.usersService.addToCart(this.id, payload).subscribe(response => {
-      console.log(response);
-    }, error => {
-      console.log(error);
-    });
+    if (localStorage.getItem('token')) {
+      const payload = {
+        paymentFor: 'recOneAttendeePrice'
+      };
+      this.usersService.addToCart(this.id, payload).subscribe(response => {
+        console.log(response);
+        this.router.navigate(['/users/cart']);
+      }, error => {
+        console.log(error);
+      });
+    } else {
+      this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 3000);
+    }
   }
 
 }

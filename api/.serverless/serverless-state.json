@@ -223,7 +223,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/traininngs-api/dev/1635849898627-2021-11-02T10:44:58.627Z/traininngs-api.zip"
+                "S3Key": "serverless/traininngs-api/dev/1636012442020-2021-11-04T07:54:02.020Z/traininngs-api.zip"
               },
               "Handler": "handler.handler",
               "Runtime": "nodejs12.x",
@@ -241,14 +241,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersioncVBu9EAfuMz5ZNyPZzhwW6hGjyxOK1e1mRSXska0": {
+          "ApiLambdaVersionSghIXy036DjZtV5TPyYQ19S61Jd8PPtgK3nKvDTNro0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "Z292ebwzgMxSOHlLXJyr/srkFbZVqkVb5WaZ//654ys="
+              "CodeSha256": "Ej3zFucuvybBoK2hC4Pt44FFxH9cPnP7SHlheOVvq4Q="
             }
           },
           "HttpApi": {
@@ -439,7 +439,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersioncVBu9EAfuMz5ZNyPZzhwW6hGjyxOK1e1mRSXska0"
+              "Ref": "ApiLambdaVersionSghIXy036DjZtV5TPyYQ19S61Jd8PPtgK3nKvDTNro0"
             },
             "Export": {
               "Name": "sls-traininngs-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -588,7 +588,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersioncVBu9EAfuMz5ZNyPZzhwW6hGjyxOK1e1mRSXska0"
+        "versionLogicalId": "ApiLambdaVersionSghIXy036DjZtV5TPyYQ19S61Jd8PPtgK3nKvDTNro0"
       }
     },
     "resources": {
@@ -704,7 +704,7 @@
     "artifact": "/Users/fayaz/Downloads/trainings_repo/api/.serverless/traininngs-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/traininngs-api/dev/1635849898627-2021-11-02T10:44:58.627Z",
+    "artifactDirectoryName": "serverless/traininngs-api/dev/1636012442020-2021-11-04T07:54:02.020Z",
     "artifact": "traininngs-api.zip"
   }
 }

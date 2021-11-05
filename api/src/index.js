@@ -6,7 +6,7 @@ const login = require('./login/login');
 const users = require('./users/users');
 const signup = require('./signup/signup');
 const webinars = require('./webinars/webinars');
-const addToCart = require('./addToCart/addToCart');
+const cart = require('./cart/cart');
 
 app.use(express.json({limit: '50mb'}));
 
@@ -15,7 +15,7 @@ app.use('/login', login);
 app.use('/users', users);
 app.use('/signup', signup);
 app.use('/webinars', webinars);
-app.use('/addToCart', addToCart);
+app.use('/cart', cart);
 
 app.use((req, res, next) => {
   return res.status(404).json({

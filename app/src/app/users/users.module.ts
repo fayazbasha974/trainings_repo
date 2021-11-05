@@ -13,6 +13,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { UpcomingWebinarsComponent } from './upcoming-webinars/upcoming-webinars.component';
 import { OndemandWebinarsComponent } from './ondemand-webinars/ondemand-webinars.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutUsComponent,
     ContactUsComponent,
     UpcomingWebinarsComponent,
-    OndemandWebinarsComponent
+    OndemandWebinarsComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
