@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxStripeModule } from 'ngx-stripe';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
@@ -14,6 +15,7 @@ import { UpcomingWebinarsComponent } from './upcoming-webinars/upcoming-webinars
 import { OndemandWebinarsComponent } from './ondemand-webinars/ondemand-webinars.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -28,12 +30,14 @@ import { CartComponent } from './cart/cart.component';
     ContactUsComponent,
     UpcomingWebinarsComponent,
     OndemandWebinarsComponent,
-    CartComponent
+    CartComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,
     UsersRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxStripeModule.forRoot("pk_test_51JstDRSJaQiiuXPdWrb89ndhJE81tI0ZUATmNGqBnUr97hIFu0AuXiUpMoViLhIDjHODaJbXAJT73UuyF3yuqcxo0012oRK293")
   ]
 })
 export class UsersModule { }

@@ -6,5 +6,6 @@ export const urls = {
     usersLogin: 'login/user',
     usersSignup: 'signup/user',
     addToCart: 'cart/',
-    getCartDetails: 'cart/'
+    getCartDetails: 'cart/',
+    payment: 'payment'
 }

@@ -35,4 +35,9 @@ export class UsersService {
     return this.apiService.get(url);
   }
 
+  payment(payload: any): Observable<any> {
+    const url = `${urls.payment}`;
+    return this.apiService.post(url, payload);
+  }
+
 }

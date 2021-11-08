@@ -7,15 +7,22 @@ const users = require('./users/users');
 const signup = require('./signup/signup');
 const webinars = require('./webinars/webinars');
 const cart = require('./cart/cart');
+const payment = require('./payment/payment');
 
 app.use(express.json({limit: '50mb'}));
+app.use(express.static(process.cwd()+'/src/dist/app'));
 
 app.use(cors());
-app.use('/login', login);
-app.use('/users', users);
-app.use('/signup', signup);
-app.use('/webinars', webinars);
-app.use('/cart', cart);
+app.use('/api/login', login);
+app.use('/api/users', users);
+app.use('/api/signup', signup);
+app.use('/api/webinars', webinars);
+app.use('/api/cart', cart);
+app.use('/api/payment', payment);
+
+app.get('/', (req,res) => {
+  res.sendFile(process.cwd()+'/src/dist/app/index.html')
+});
 
 app.use((req, res, next) => {
   return res.status(404).json({

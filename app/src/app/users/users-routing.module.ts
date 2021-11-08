@@ -7,6 +7,7 @@ import { DetailedWebinarComponent } from './detailed-webinar/detailed-webinar.co
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: '', component: UsersComponent, children: [
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'webinar-detail', component: DetailedWebinarComponent },
     { path: 'aboutus', component: AboutUsComponent },
     { path: 'contactus', component: ContactUsComponent },
-    { path: 'cart', component: CartComponent }
+    { path: 'cart', component: CartComponent },
+    { path: 'payment', component: PaymentComponent }
   ] }
 ];
 

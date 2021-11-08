@@ -1,0 +1,13 @@
+<div class="payment-div">
+  <h2>Payment Details</h2>
+  <form [formGroup]="paymentForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" placeholder="Enter name" id="name" formControlName="name">
+    </div>
+    <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+    <button type="submit" (click)="pay()">
+      Pay
+    </button>
+  </form>
+</div>

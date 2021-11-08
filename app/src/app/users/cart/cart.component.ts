@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,7 @@ export class CartComponent implements OnInit {
   paymentOptions: any = {};
   totalPrice: number = 0;
 
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService, private readonly router: Router) { }
 
   ngOnInit(): void {
     this.getCartDetails();
@@ -33,6 +34,10 @@ export class CartComponent implements OnInit {
     this.webinars.map((webinar: any) => {
       this.totalPrice += Number(webinar[this.paymentOptions[webinar.id]]);
     });
+  }
+
+  payment() {
+    this.router.navigate(['/users/payment']);
   }
 
 }
