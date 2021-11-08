@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
+
+  totalPrice: number = 0;
   @ViewChild(StripeCardComponent) card !: StripeCardComponent;
 
   cardOptions: StripeCardElementOptions = {
@@ -46,6 +48,22 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
     this.paymentForm = this.fb.group({
       name: ['', [Validators.required]]
+    });
+    this.getCartDetails();
+  }
+
+  getCartDetails() {
+    this.usersService.getCart().subscribe(response => {
+      console.log(response);
+      this.getTotalAmount(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getTotalAmount(response: any) {
+    response.Items.map((webinar: any) => {
+      this.totalPrice += Number(webinar[response.paymentOptions[webinar.id]]);
     });
   }
 

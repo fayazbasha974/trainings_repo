@@ -63,6 +63,11 @@ router.get('/', verifyToken, async (req, res) => {
             } catch(error) {
                 res.status(500).json(error);
             }
+        } else {
+            res.json({
+                Items: [],
+                paymentOptions: {}
+            });
         }
     } catch(error) {
         res.status(500).json(error); 
