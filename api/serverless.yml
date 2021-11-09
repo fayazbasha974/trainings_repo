@@ -6,6 +6,7 @@ custom:
   adminTableName: 'admin-table-${sls:stage}'
   userTableName: 'user-table-${sls:stage}'
   webinarsTableName: 'webinars-table-${sls:stage}'
+  ordersTableName: 'orders-table'
   imageUploadBucket: 'online-training-images'
 
 provider:
@@ -90,3 +91,14 @@ resources:
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:custom.webinarsTableName}         
+    ordersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.ordersTableName}  

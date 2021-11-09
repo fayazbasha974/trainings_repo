@@ -8,6 +8,7 @@ const signup = require('./signup/signup');
 const webinars = require('./webinars/webinars');
 const cart = require('./cart/cart');
 const payment = require('./payment/payment');
+const orders = require('./orders/orders');
 
 app.use(express.json({limit: '50mb'}));
 app.use(express.static(process.cwd()+'/src/dist/app'));
@@ -19,6 +20,7 @@ app.use('/api/signup', signup);
 app.use('/api/webinars', webinars);
 app.use('/api/cart', cart);
 app.use('/api/payment', payment);
+app.use('/api/orders', orders);
 
 app.get('/', (req,res) => {
   res.sendFile(process.cwd()+'/src/dist/app/index.html')

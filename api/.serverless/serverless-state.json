@@ -223,7 +223,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/traininngs-api/dev/1636354399363-2021-11-08T06:53:19.363Z/traininngs-api.zip"
+                "S3Key": "serverless/traininngs-api/dev/1636443394819-2021-11-09T07:36:34.819Z/traininngs-api.zip"
               },
               "Handler": "handler.handler",
               "Runtime": "nodejs12.x",
@@ -241,14 +241,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionQ5ldEvpEP8UerPVwptkgcZCUZDpltD6VzzZnu5lKiQ": {
+          "ApiLambdaVersionjSUfgF4PSLhrYA30ilCdKfPpg9N6xSVnCuXcnUAa5nw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "UiagsH2bcMGIxNLHXLI77MAJRJZlIPeuY2nNNJVYQ7A="
+              "CodeSha256": "zFM4M6bTBlIRqB0SbqLEumtSgSfRyA45thKX4VBWadk="
             }
           },
           "HttpApi": {
@@ -425,6 +425,25 @@
               "BillingMode": "PAY_PER_REQUEST",
               "TableName": "webinars-table-dev"
             }
+          },
+          "ordersTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "id",
+                  "AttributeType": "S"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "id",
+                  "KeyType": "HASH"
+                }
+              ],
+              "BillingMode": "PAY_PER_REQUEST",
+              "TableName": "orders-table"
+            }
           }
         },
         "Outputs": {
@@ -439,7 +458,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionQ5ldEvpEP8UerPVwptkgcZCUZDpltD6VzzZnu5lKiQ"
+              "Ref": "ApiLambdaVersionjSUfgF4PSLhrYA30ilCdKfPpg9N6xSVnCuXcnUAa5nw"
             },
             "Export": {
               "Name": "sls-traininngs-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -570,6 +589,7 @@
       "adminTableName": "admin-table-dev",
       "userTableName": "user-table-dev",
       "webinarsTableName": "webinars-table-dev",
+      "ordersTableName": "orders-table",
       "imageUploadBucket": "online-training-images"
     },
     "pluginsData": {},
@@ -588,7 +608,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionQ5ldEvpEP8UerPVwptkgcZCUZDpltD6VzzZnu5lKiQ"
+        "versionLogicalId": "ApiLambdaVersionjSUfgF4PSLhrYA30ilCdKfPpg9N6xSVnCuXcnUAa5nw"
       }
     },
     "resources": {
@@ -675,6 +695,25 @@
             "BillingMode": "PAY_PER_REQUEST",
             "TableName": "webinars-table-dev"
           }
+        },
+        "ordersTable": {
+          "Type": "AWS::DynamoDB::Table",
+          "Properties": {
+            "AttributeDefinitions": [
+              {
+                "AttributeName": "id",
+                "AttributeType": "S"
+              }
+            ],
+            "KeySchema": [
+              {
+                "AttributeName": "id",
+                "KeyType": "HASH"
+              }
+            ],
+            "BillingMode": "PAY_PER_REQUEST",
+            "TableName": "orders-table"
+          }
         }
       },
       "Outputs": {}
@@ -704,7 +743,7 @@
     "artifact": "/Users/fayaz/Downloads/trainings_repo/api/.serverless/traininngs-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/traininngs-api/dev/1636354399363-2021-11-08T06:53:19.363Z",
+    "artifactDirectoryName": "serverless/traininngs-api/dev/1636443394819-2021-11-09T07:36:34.819Z",
     "artifact": "traininngs-api.zip"
   }
 }
