@@ -41,6 +41,7 @@ export class DetailedWebinarComponent implements OnInit {
       };
       this.usersService.addToCart(this.id, payload).subscribe(response => {
         console.log(response);
+        this.usersService.addedToCart.next(1);
         this.router.navigate(['/users/cart']);
       }, error => {
         console.log(error);

@@ -7,5 +7,6 @@ export const urls = {
     usersSignup: 'signup/user',
     addToCart: 'cart/',
     getCartDetails: 'cart/',
-    payment: 'payment'
+    payment: 'payment',
+    gettokendetails: 'gettokendetails'
 }

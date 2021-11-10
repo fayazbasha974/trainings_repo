@@ -31,15 +31,16 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto right-navigation">
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="!userConfig.data.username">
                         <a class="nav-link" (click)="showLogin()">
                             <i class="fas fa-sign-in-alt"></i>
                             Login
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" (click)="goToCart()">
                             <i class="fas fa-cart-arrow-down"></i>
+                            {{userConfig.data.cart}}
                         </a>
                     </li>
                 </ul>

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { urls } from '../../urls/urls';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+
+  addedToCart: Subject<number> = new Subject();
 
   constructor(private readonly apiService: ApiService) { }
 
@@ -38,6 +40,11 @@ export class UsersService {
   payment(payload: any): Observable<any> {
     const url = `${urls.payment}`;
     return this.apiService.post(url, payload);
+  }
+
+  getTokenDetails(): Observable<any> {
+    const url = `${urls.gettokendetails}`;
+    return this.apiService.get(url);
   }
 
 }

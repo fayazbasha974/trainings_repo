@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -9,12 +10,25 @@ import { Component, OnInit } from '@angular/core';
 export class UsersComponent implements OnInit {
 
   userConfig: any = {
-    showLoginPopup: false
-  }
+    showLoginPopup: false,
+    data: {}
+  };
 
-  constructor() { }
+  constructor(private readonly usersService: UsersService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('token')) {
+      this.getUserDetails();
+    }
+  }
+
+  getUserDetails() {
+    this.usersService.getTokenDetails().subscribe(response => {
+      console.log(response);
+      this.userConfig.data = response;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
