@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-webinars-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebinarsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParamMap.subscribe(value => {
+      console.log(value);
+    })
+    console.log('called');
   }
 
 }

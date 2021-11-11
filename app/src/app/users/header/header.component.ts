@@ -28,4 +28,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/users/cart']);
   }
 
+  goToWebinarsList(type: string) {
+    this.router.navigate(['/users/webinars-list'], {queryParams: {type}});
+  }
+
 }
