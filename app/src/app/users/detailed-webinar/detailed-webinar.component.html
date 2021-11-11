@@ -40,22 +40,22 @@
             </div>
             <div class="col-lg-4 ">
                 <div class="webinar-price">
-                    <div class="row">
+                    <div class="row" [formGroup]="webinarForm">
                         <div class="col-12">
                             <h2 class="mb-4">Webinar Subscription</h2>
                         </div>
 
-                        <div class="col-lg-12 ">
+                        <div class="col-lg-12 " *ngIf="webinar.webinarType === 'upcoming'">
                             <div class="webinar-price-title mb-4"><i class="fas fa-headset"></i> Live Webinar</div>
                             <div class="price-list mb-4">
                                 <div class="radio mb-2">
-                                    <input id="radio-1" name="radio" type="radio" >
+                                    <input id="radio-1" type="radio" formControlName="paymentFor" value="liveOneAttendeePrice" >
                                     <label for="radio-1" class="radio-label"> One Attendee -
                                         ${{webinar.liveOneAttendeePrice}} </label>
                                 </div>
 
                                 <div class="radio mb-2">
-                                    <input id="radio-2" name="radio" type="radio">
+                                    <input id="radio-2" type="radio" formControlName="paymentFor" value="livegroupAttendeesPrice" >
                                     <label for="radio-2" class="radio-label"> Group Attendee -
                                         ${{webinar.livegroupAttendeesPrice}} </label>
                                 </div>
@@ -67,30 +67,30 @@
                             </div>
                             <div class="price-list mb-4">
                                 <div class="radio mb-2">
-                                    <input id="radio-3" name="radio" type="radio" checked>
+                                    <input id="radio-3" type="radio" formControlName="paymentFor" value="recOneAttendeePrice" >
                                     <label for="radio-3" class="radio-label"> One Attendee -
                                         ${{webinar.recOneAttendeePrice}} </label>
                                 </div>
 
                                 <div class="radio mb-2">
-                                    <input id="radio-4" name="radio" type="radio">
+                                    <input id="radio-4" type="radio" formControlName="paymentFor" value="recgroupAttendeesPrice" >
                                     <label for="radio-4" class="radio-label"> Group Attendee -
                                         ${{webinar.recgroupAttendeesPrice}} </label>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" *ngIf="webinar.webinarType === 'upcoming'">
                             <div class="webinar-price-title mb-4"><i class="fas fa-headset"></i> + <i
                                     class="fas fa-record-vinyl"></i> Combo Webinar</div>
                             <div class="price-list">
                                 <div class="radio mb-2">
-                                    <input id="radio-5" name="radio" type="radio" checked>
+                                    <input id="radio-5" type="radio" formControlName="paymentFor" value="comboOneAttendeePrice" >
                                     <label for="radio-5" class="radio-label"> One Attendee -
                                         ${{webinar.comboOneAttendeePrice}} </label>
                                 </div>
                                 <div class="radio mb-2">
-                                    <input id="radio-6" name="radio" type="radio">
+                                    <input id="radio-6" type="radio" formControlName="paymentFor" value="combogroupAttendeesPrice" >
                                     <label for="radio-6" class="radio-label"> Group Attendee -
                                         ${{webinar.combogroupAttendeesPrice}} </label>
                                 </div>
