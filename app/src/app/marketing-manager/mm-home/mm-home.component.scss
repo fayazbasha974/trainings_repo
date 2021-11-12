@@ -1,0 +1,19 @@
+@import '../marketing-manager-variables.scss';
+
+.mm-top-nav {
+    height: $mm-top-nav-height;
+}
+
+.mm-content {
+    height: calc(100vh - #{$mm-top-nav-height});
+    display: flex;
+    background-color: aliceblue;
+    .mm-side-nav {
+        width: $mm-side-nav-width; 
+        background-color: yellowgreen;
+    }
+    .mm-home-content {
+        width: calc(100vw - #{$mm-side-nav-width});
+        background-color: antiquewhite;
+    }
+}

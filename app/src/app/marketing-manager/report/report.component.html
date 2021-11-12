@@ -1,0 +1,16 @@
+<span class="mm-title">{{title}}</span>
+<clr-datagrid>
+    <clr-dg-column>Customer</clr-dg-column>
+    <clr-dg-column>Amount</clr-dg-column>
+    <clr-dg-column>Date</clr-dg-column>
+    <clr-dg-row *clrDgItems="let item of items">
+      <clr-dg-cell>{{item.customer}}</clr-dg-cell>
+      <clr-dg-cell>{{item.amount}}</clr-dg-cell>
+      <clr-dg-cell>{{item.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="1">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} users
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
