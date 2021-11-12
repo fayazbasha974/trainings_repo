@@ -1,0 +1,10 @@
+@import '../marketing-manager-variables.scss';
+
+.mm-nav-item {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    background-color: $primary-bg;
+    color: $mm-nav-item-active-font;
+    font-size: 18px;
+}

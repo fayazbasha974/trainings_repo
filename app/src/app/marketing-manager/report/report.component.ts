@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MarketingManagerService } from '../services/marketing-manager.service';
 
 @Component({
@@ -8,12 +8,13 @@ import { MarketingManagerService } from '../services/marketing-manager.service';
 })
 export class ReportComponent implements OnInit {
 
-  title: string = 'Orders Report';
+  @Input() config: any;
   items: any = [];
+
   constructor(private readonly mmService: MarketingManagerService) { }
 
   ngOnInit(): void {
-    this.mmService.getOrders().subscribe(response => {
+    this.mmService.getItems(this.config.url).subscribe(response => {
       console.log(response);
       this.items = response.Items;
     }, error => {

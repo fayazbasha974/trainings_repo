@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ClarityIcons, userIcon } from '@cds/core/icon';
+
+ClarityIcons.addIcons(userIcon);
 
 @Component({
   selector: 'app-mm-home',

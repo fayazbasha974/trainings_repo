@@ -2,18 +2,25 @@
 
 .mm-top-nav {
     height: $mm-top-nav-height;
+    background-color: $mm-home-bg;
+    color: $mm-home-primary-font;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $mm-top-nav-font;
+    padding: 0 8px;
 }
 
 .mm-content {
     height: calc(100vh - #{$mm-top-nav-height});
     display: flex;
-    background-color: aliceblue;
     .mm-side-nav {
         width: $mm-side-nav-width; 
-        background-color: yellowgreen;
+        background-color: $mm-home-bg;
+        color: $mm-home-primary-font;
     }
     .mm-home-content {
         width: calc(100vw - #{$mm-side-nav-width});
-        background-color: antiquewhite;
+        padding: 5px;
     }
 }

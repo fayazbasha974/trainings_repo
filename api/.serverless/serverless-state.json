@@ -223,7 +223,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/traininngs-api/dev/1636443394819-2021-11-09T07:36:34.819Z/traininngs-api.zip"
+                "S3Key": "serverless/traininngs-api/dev/1636747302932-2021-11-12T20:01:42.932Z/traininngs-api.zip"
               },
               "Handler": "handler.handler",
               "Runtime": "nodejs12.x",
@@ -241,14 +241,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionjSUfgF4PSLhrYA30ilCdKfPpg9N6xSVnCuXcnUAa5nw": {
+          "ApiLambdaVersionFdglC4htkga7KzNivzrTHvd2xU4sEVMV9FrXWbjIb7I": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "zFM4M6bTBlIRqB0SbqLEumtSgSfRyA45thKX4VBWadk="
+              "CodeSha256": "BE9ME0j7abi0rl0+1kj6YXb4CYs/9QFfcCfbC6GeQQ4="
             }
           },
           "HttpApi": {
@@ -388,6 +388,25 @@
               "TableName": "admin-table-dev"
             }
           },
+          "marketingManagerTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "username",
+                  "AttributeType": "S"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "username",
+                  "KeyType": "HASH"
+                }
+              ],
+              "BillingMode": "PAY_PER_REQUEST",
+              "TableName": "marketing-manager-table"
+            }
+          },
           "userTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
@@ -458,7 +477,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionjSUfgF4PSLhrYA30ilCdKfPpg9N6xSVnCuXcnUAa5nw"
+              "Ref": "ApiLambdaVersionFdglC4htkga7KzNivzrTHvd2xU4sEVMV9FrXWbjIb7I"
             },
             "Export": {
               "Name": "sls-traininngs-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -588,6 +607,7 @@
       "tableName": "users-table-dev",
       "adminTableName": "admin-table-dev",
       "userTableName": "user-table-dev",
+      "marketingManagerTableName": "marketing-manager-table",
       "webinarsTableName": "webinars-table-dev",
       "ordersTableName": "orders-table",
       "imageUploadBucket": "online-training-images"
@@ -608,7 +628,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionjSUfgF4PSLhrYA30ilCdKfPpg9N6xSVnCuXcnUAa5nw"
+        "versionLogicalId": "ApiLambdaVersionFdglC4htkga7KzNivzrTHvd2xU4sEVMV9FrXWbjIb7I"
       }
     },
     "resources": {
@@ -656,6 +676,25 @@
             ],
             "BillingMode": "PAY_PER_REQUEST",
             "TableName": "admin-table-dev"
+          }
+        },
+        "marketingManagerTable": {
+          "Type": "AWS::DynamoDB::Table",
+          "Properties": {
+            "AttributeDefinitions": [
+              {
+                "AttributeName": "username",
+                "AttributeType": "S"
+              }
+            ],
+            "KeySchema": [
+              {
+                "AttributeName": "username",
+                "KeyType": "HASH"
+              }
+            ],
+            "BillingMode": "PAY_PER_REQUEST",
+            "TableName": "marketing-manager-table"
           }
         },
         "userTable": {
@@ -743,7 +782,7 @@
     "artifact": "/Users/fayaz/Downloads/trainings_repo/api/.serverless/traininngs-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/traininngs-api/dev/1636443394819-2021-11-09T07:36:34.819Z",
+    "artifactDirectoryName": "serverless/traininngs-api/dev/1636747302932-2021-11-12T20:01:42.932Z",
     "artifact": "traininngs-api.zip"
   }
 }

@@ -5,6 +5,7 @@ custom:
   tableName: 'users-table-${sls:stage}'
   adminTableName: 'admin-table-${sls:stage}'
   userTableName: 'user-table-${sls:stage}'
+  marketingManagerTableName: 'marketing-manager-table'
   webinarsTableName: 'webinars-table-${sls:stage}'
   ordersTableName: 'orders-table'
   imageUploadBucket: 'online-training-images'
@@ -68,7 +69,18 @@ resources:
           - AttributeName: username
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
-        TableName: ${self:custom.adminTableName}  
+        TableName: ${self:custom.adminTableName} 
+    marketingManagerTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: username
+            AttributeType: S
+        KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.marketingManagerTableName}          
     userTable:
       Type: AWS::DynamoDB::Table
       Properties:
