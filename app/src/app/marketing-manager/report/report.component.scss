@@ -1,5 +1,14 @@
 @import '../marketing-manager-variables.scss';
 
-.mm-title {
-    font-size: $mm-title-font;
+.mm-report-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5px;
+    .mm-title {
+        font-size: $mm-title-font;
+    }
+    cds-icon {
+        cursor: pointer;
+    }
 }
