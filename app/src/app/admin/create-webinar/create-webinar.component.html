@@ -1,4 +1,113 @@
-<section class="">
+<div class="create-webinar-container">
+    <div class="admin-home-title">{{editId ? 'Edit': 'Create'}} Webinar</div>
+    <form clrForm clrLayout="vertical" [formGroup]="createWebinar">
+        <div class="clr-row">
+            <div class="clr-col-12">
+                <clr-input-container>
+                    <label>Webinar Title:</label>
+                    <input clrInput placeholder="" name="title" formControlName="title" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Mentor Name:</label>
+                    <input clrInput placeholder="" name="author" formControlName="author" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-select-container>
+                    <label>Webinar Type:</label>
+                    <select clrSelect formControlName="webinarType">
+                        <option value="upcoming">Up Coming</option>
+                        <option value="ondemand">On Demand</option>
+                    </select>
+                </clr-select-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-select-container>
+                    <label>Category:</label>
+                    <select clrSelect formControlName="category">
+                        <option value="hr">HR</option>
+                        <option value="finance">Finance</option>
+                    </select>
+                </clr-select-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-date-container>
+                    <label>Date</label>
+                    <input type="date" clrDate formControlName="date" />
+                </clr-date-container>
+            </div>
+            <div class="clr-col-4">
+                <label for="pdtTime">PDT Time:</label>
+                <input type="time" class="form-control" id="pdtTime" formControlName="pdtTime">
+            </div>
+            <div class="clr-col-4">
+                <label for="edtTime">EDT Time:</label>
+                <input type="time" class="form-control" id="edtTime" formControlName="edtTime">
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Duration:</label>
+                    <input clrInput placeholder="" name="duration" formControlName="duration" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Webinar Link:</label>
+                    <input clrInput placeholder="" name="webinarLink" formControlName="webinarLink" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">Live Version Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="liveOneAttendeePrice" formControlName="liveOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="livegroupAttendeesPrice" formControlName="livegroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">Recorded Version Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="recOneAttendeePrice" formControlName="recOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="recgroupAttendeesPrice" formControlName="recgroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-12">
+                <span class="pricing-class">COMBO Offers (Live + Recorded) Pricing:</span>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>One Attendee:</label>
+                    <input clrInput placeholder="" name="comboOneAttendeePrice" formControlName="comboOneAttendeePrice" />
+                </clr-input-container>
+            </div>
+            <div class="clr-col-4">
+                <clr-input-container>
+                    <label>Group Attendees:</label>
+                    <input clrInput placeholder="" name="combogroupAttendeesPrice" formControlName="combogroupAttendeesPrice" />
+                </clr-input-container>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- <section class="">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -107,7 +216,7 @@
                                 <label>Author Image:</label>
                                 <img src="{{createWebinar.get('authorImage')!.value}}" width="50%">
                             </div> -->
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <label>Description:</label>
                                 <angular-editor formControlName="htmlContent" [config]="editorConfig"></angular-editor>
                             </div>
@@ -130,6 +239,6 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
-</section>
+<!-- </section> --> 

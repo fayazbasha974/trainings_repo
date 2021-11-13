@@ -1,0 +1,14 @@
+@import '../admin-variables.scss';
+
+.admin-nav-item {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.admin-nav-active {
+    background-color: $primary-bg;
+    color: $admin-nav-item-active-font;
+}

@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { WebinarsListComponent } from './webinars-list/webinars-list.component';
 import { CreateWebinarComponent } from './create-webinar/create-webinar.component';
+import { ClarityModule } from '@clr/angular';
+import { AdminSideNavComponent } from './admin-side-nav/admin-side-nav.component';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { CreateWebinarComponent } from './create-webinar/create-webinar.componen
     AdminHomeComponent,
     WebinarsListComponent,
     CreateWebinarComponent,
+    AdminSideNavComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularEditorModule
+    AngularEditorModule,
+    ClarityModule
   ]
 })
 export class AdminModule { }

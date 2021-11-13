@@ -1,9 +1,10 @@
-.pricing-class {
-    width: 100%;
-    display: block;
-    padding-left: 15px;
+.clr-form-control {
+    align-items: unset;
+    input, select, ::ng-deep .clr-select-wrapper {
+        width: 100% !important;
+    }
 }
-.row-div {
-    width: 100%;
-    padding-left: 15px;
-}
+
+// ::ng-deep .clr-select-wrapper {
+//     width: 100% !important;
+// }
