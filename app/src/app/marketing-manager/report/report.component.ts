@@ -5,6 +5,15 @@ import { ClarityIcons, downloadIcon } from '@cds/core/icon';
 import { MarketingManagerService } from '../services/marketing-manager.service';
 ClarityIcons.addIcons(downloadIcon);
 
+import { ClrDatagridComparatorInterface } from '@clr/angular';
+
+class PokemonComparator implements ClrDatagridComparatorInterface<any> {
+  compare(a: any, b: any) {
+    console.log(a, b);
+    return a.pokemon.number - b.pokemon.number;
+  }
+}
+
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -14,6 +23,7 @@ export class ReportComponent implements OnInit {
 
   @Input() config: any;
   items: any = [];
+  public pokemonComparator = new PokemonComparator();
 
   constructor(private readonly mmService: MarketingManagerService) { }
 

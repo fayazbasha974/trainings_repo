@@ -3,7 +3,7 @@
   <cds-icon shape="download" (click)="download()"></cds-icon>
 </div>
 <clr-datagrid>
-    <clr-dg-column>Customer</clr-dg-column>
+    <clr-dg-column [clrDgSortBy]="pokemonComparator">Customer</clr-dg-column>
     <clr-dg-column>Amount</clr-dg-column>
     <clr-dg-column>Date</clr-dg-column>
     <clr-dg-row *clrDgItems="let item of items">
@@ -12,7 +12,7 @@
       <clr-dg-cell>{{item.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
     </clr-dg-row>
     <clr-dg-footer>
-      <clr-dg-pagination #pagination [clrDgPageSize]="1">
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
         {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} users
       </clr-dg-pagination>
     </clr-dg-footer>
