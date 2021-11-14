@@ -46,6 +46,12 @@
                     "webinarsTable",
                     "Arn"
                   ]
+                },
+                {
+                  "Fn::GetAtt": [
+                    "categoriesTable",
+                    "Arn"
+                  ]
                 }
               ]
             }
@@ -223,7 +229,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/traininngs-api/dev/1636747302932-2021-11-12T20:01:42.932Z/traininngs-api.zip"
+                "S3Key": "serverless/traininngs-api/dev/1636891999711-2021-11-14T12:13:19.711Z/traininngs-api.zip"
               },
               "Handler": "handler.handler",
               "Runtime": "nodejs12.x",
@@ -241,14 +247,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionFdglC4htkga7KzNivzrTHvd2xU4sEVMV9FrXWbjIb7I": {
+          "ApiLambdaVersionudMtOHThv1vJml1xiARRhpJEX6JLjpnWWnY7dpQIDA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "BE9ME0j7abi0rl0+1kj6YXb4CYs/9QFfcCfbC6GeQQ4="
+              "CodeSha256": "YHXT/vNo17GrrWOcH+zpl5VYfrFw5CYBglCDFY84EFY="
             }
           },
           "HttpApi": {
@@ -445,6 +451,25 @@
               "TableName": "webinars-table-dev"
             }
           },
+          "categoriesTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "id",
+                  "AttributeType": "S"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "id",
+                  "KeyType": "HASH"
+                }
+              ],
+              "BillingMode": "PAY_PER_REQUEST",
+              "TableName": "category-table"
+            }
+          },
           "ordersTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
@@ -477,7 +502,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionFdglC4htkga7KzNivzrTHvd2xU4sEVMV9FrXWbjIb7I"
+              "Ref": "ApiLambdaVersionudMtOHThv1vJml1xiARRhpJEX6JLjpnWWnY7dpQIDA"
             },
             "Export": {
               "Name": "sls-traininngs-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -610,6 +635,7 @@
       "marketingManagerTableName": "marketing-manager-table",
       "webinarsTableName": "webinars-table-dev",
       "ordersTableName": "orders-table",
+      "categoriesTableName": "category-table",
       "imageUploadBucket": "online-training-images"
     },
     "pluginsData": {},
@@ -628,7 +654,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionFdglC4htkga7KzNivzrTHvd2xU4sEVMV9FrXWbjIb7I"
+        "versionLogicalId": "ApiLambdaVersionudMtOHThv1vJml1xiARRhpJEX6JLjpnWWnY7dpQIDA"
       }
     },
     "resources": {
@@ -735,6 +761,25 @@
             "TableName": "webinars-table-dev"
           }
         },
+        "categoriesTable": {
+          "Type": "AWS::DynamoDB::Table",
+          "Properties": {
+            "AttributeDefinitions": [
+              {
+                "AttributeName": "id",
+                "AttributeType": "S"
+              }
+            ],
+            "KeySchema": [
+              {
+                "AttributeName": "id",
+                "KeyType": "HASH"
+              }
+            ],
+            "BillingMode": "PAY_PER_REQUEST",
+            "TableName": "category-table"
+          }
+        },
         "ordersTable": {
           "Type": "AWS::DynamoDB::Table",
           "Properties": {
@@ -782,7 +827,7 @@
     "artifact": "/Users/fayaz/Downloads/trainings_repo/api/.serverless/traininngs-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/traininngs-api/dev/1636747302932-2021-11-12T20:01:42.932Z",
+    "artifactDirectoryName": "serverless/traininngs-api/dev/1636891999711-2021-11-14T12:13:19.711Z",
     "artifact": "traininngs-api.zip"
   }
 }

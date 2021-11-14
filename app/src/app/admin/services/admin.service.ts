@@ -35,4 +35,14 @@ export class AdminService {
     return this.apiService.post(path, payload);
   }
 
+  saveCategory(payload: any): Observable<any> {
+    const path = urls.saveCategory;
+    return this.apiService.post(path, payload);
+  }
+
+  getCategories(): Observable<any> {
+    const path = urls.getCategories;
+    return this.apiService.get(path);
+  }
+
 }

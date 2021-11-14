@@ -11,6 +11,8 @@ import { WebinarsListComponent } from './webinars-list/webinars-list.component';
 import { CreateWebinarComponent } from './create-webinar/create-webinar.component';
 import { ClarityModule } from '@clr/angular';
 import { AdminSideNavComponent } from './admin-side-nav/admin-side-nav.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { AdminSideNavComponent } from './admin-side-nav/admin-side-nav.component
     WebinarsListComponent,
     CreateWebinarComponent,
     AdminSideNavComponent,
+    CategoryComponent,
+    CategoryListComponent,
   ],
   imports: [
     CommonModule,

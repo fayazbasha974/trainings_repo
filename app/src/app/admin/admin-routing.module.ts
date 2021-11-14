@@ -6,13 +6,17 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { CreateWebinarComponent } from './create-webinar/create-webinar.component';
 import { WebinarsListComponent } from './webinars-list/webinars-list.component';
 import { AdminGuard } from './admin.guard';
+import { CategoryComponent } from './category/category.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent, children: [
     { path: '', component: LoginComponent },
     { path: 'home', component: AdminHomeComponent, canActivate: [AdminGuard], children: [
       { path: 'create-webinar', component: CreateWebinarComponent },
-      { path: 'webinars-list', component: WebinarsListComponent}
+      { path: 'webinars-list', component: WebinarsListComponent},
+      { path: 'category', component: CategoryComponent },
+      { path: 'category-list', component: CategoryListComponent }
     ] }
   ] }
 ];

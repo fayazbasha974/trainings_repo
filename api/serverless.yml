@@ -8,6 +8,7 @@ custom:
   marketingManagerTableName: 'marketing-manager-table'
   webinarsTableName: 'webinars-table-${sls:stage}'
   ordersTableName: 'orders-table'
+  categoriesTableName: 'category-table'
   imageUploadBucket: 'online-training-images'
 
 provider:
@@ -31,6 +32,7 @@ provider:
             - Fn::GetAtt: [ adminTable, Arn ]
             - Fn::GetAtt: [ userTable, Arn ]
             - Fn::GetAtt: [ webinarsTable, Arn ]
+            - Fn::GetAtt: [ categoriesTable, Arn ]
   environment:
     
   USERS_TABLE: ${self:custom.tableName}
@@ -102,7 +104,18 @@ resources:
           - AttributeName: id
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
-        TableName: ${self:custom.webinarsTableName}         
+        TableName: ${self:custom.webinarsTableName} 
+    categoriesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.categoriesTableName}                
     ordersTable:
       Type: AWS::DynamoDB::Table
       Properties:

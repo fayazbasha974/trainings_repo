@@ -10,5 +10,7 @@ export const urls = {
     getCartDetails: 'cart/',
     payment: 'payment',
     gettokendetails: 'gettokendetails',
-    getOrders: 'orders'
+    getOrders: 'orders',
+    saveCategory: 'category',
+    getCategories: 'category'
 }
