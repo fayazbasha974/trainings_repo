@@ -1,23 +1,31 @@
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Webinars List</h2>
-            </div>
-            
-            <div class="col-lg-12">
-                <table class="table  table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Title</th>
-                        <th>Mentor</th>
-                        <th>Type</th>
-                        <th>Date</th>
-                        <th>Duration</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let webinar of webinars">
+<div class="webinar-list-container">
+  <div class="admin-home-title">Webinars</div>
+  <clr-datagrid>
+    <clr-dg-column>Title</clr-dg-column>
+    <clr-dg-column>Mentor</clr-dg-column>
+    <clr-dg-column>Type</clr-dg-column>
+    <clr-dg-column>Date</clr-dg-column>
+    <clr-dg-column>Duration</clr-dg-column>
+    <clr-dg-column>Action</clr-dg-column>
+    <clr-dg-row *clrDgItems="let webinar of webinars">
+      <clr-dg-cell>{{webinar.title}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.author}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.webinarType}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.date | date: 'MMM dd YYYY'}}</clr-dg-cell>
+      <clr-dg-cell>{{webinar.duration}}</clr-dg-cell>
+      <clr-dg-cell>
+        <cds-icon class="pointer" shape="note" (click)="edit(webinar.id)"></cds-icon>
+        <cds-icon class="pointer" shape="trash" (click)="deleteWebinar(webinar.id)"></cds-icon>
+      </clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} webinars
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+</div>    
+                      <!-- <tr *ngFor="let webinar of webinars">
                         <td>{{webinar.title}}</td>
                         <td>{{webinar.author}}</td>
                         <td>{{webinar.webinarType}}</td>
@@ -31,4 +39,4 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> -->

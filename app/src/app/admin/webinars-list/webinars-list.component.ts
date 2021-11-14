@@ -3,6 +3,8 @@ import { AdminService } from '../services/admin.service';
 import Swal from 'sweetalert2';
 import { ToasterService } from '../../services/toaster.service';
 import { Router } from '@angular/router';
+import { ClarityIcons, trashIcon, noteIcon } from '@cds/core/icon';
+ClarityIcons.addIcons(trashIcon, noteIcon);
 
 @Component({
   selector: 'app-webinars-list',
