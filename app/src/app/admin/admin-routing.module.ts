@@ -8,6 +8,8 @@ import { WebinarsListComponent } from './webinars-list/webinars-list.component';
 import { AdminGuard } from './admin.guard';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { WebinarTypeComponent } from './webinar-type/webinar-type.component';
+import { WebinarTypeListComponent } from './webinar-type-list/webinar-type-list.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent, children: [
@@ -16,7 +18,9 @@ const routes: Routes = [
       { path: 'create-webinar', component: CreateWebinarComponent },
       { path: 'webinars-list', component: WebinarsListComponent},
       { path: 'category', component: CategoryComponent },
-      { path: 'category-list', component: CategoryListComponent }
+      { path: 'category-list', component: CategoryListComponent },
+      { path: 'webinar-type', component: WebinarTypeComponent },
+      { path: 'webinar-type-list', component: WebinarTypeListComponent }
     ] }
   ] }
 ];

@@ -10,6 +10,7 @@ const cart = require('./cart/cart');
 const payment = require('./payment/payment');
 const orders = require('./orders/orders');
 const category = require('./category/category');
+const webinarTypes = require('./webinar-types/webinar-types');
 const getTokenDetails = require('./get-token-details/get-token-details.js');
 
 app.use(express.json({limit: '50mb'}));
@@ -25,6 +26,7 @@ app.use('/api/payment', payment);
 app.use('/api/orders', orders);
 app.use('/api/gettokendetails', getTokenDetails);
 app.use('/api/category', category);
+app.use('/api/webinarTypes', webinarTypes);
 
 app.get('/', (req,res) => {
   res.sendFile(process.cwd()+'/src/dist/app/index.html')

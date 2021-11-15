@@ -45,4 +45,14 @@ export class AdminService {
     return this.apiService.get(path);
   }
 
+  saveWebinarType(payload: any): Observable<any> {
+    const path = urls.saveWebinarTypes;
+    return this.apiService.post(path, payload);
+  }
+
+  getWebinarTypes(): Observable<any> {
+    const path = urls.getWebinarTypes;
+    return this.apiService.get(path);
+  }
+
 }

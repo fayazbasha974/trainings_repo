@@ -5,6 +5,7 @@ import { AdminService } from '../services/admin.service';
 import { ToasterService } from '../../services/toaster.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { forkJoin, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-webinar',
@@ -17,26 +18,26 @@ export class CreateWebinarComponent implements OnInit {
   editId: string = '';
   editorConfig: AngularEditorConfig = {
     editable: true,
-      spellcheck: true,
-      height: 'auto',
-      minHeight: '0',
-      maxHeight: 'auto',
-      width: 'auto',
-      minWidth: '0',
-      translate: 'yes',
-      enableToolbar: true,
-      showToolbar: true,
-      placeholder: 'Enter text here...',
-      defaultParagraphSeparator: '',
-      defaultFontName: '',
-      defaultFontSize: '',
-      fonts: [
-        {class: 'arial', name: 'Arial'},
-        {class: 'times-new-roman', name: 'Times New Roman'},
-        {class: 'calibri', name: 'Calibri'},
-        {class: 'comic-sans-ms', name: 'Comic Sans MS'}
-      ],
-      customClasses: [
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '0',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: '',
+    defaultFontSize: '',
+    fonts: [
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'calibri', name: 'Calibri' },
+      { class: 'comic-sans-ms', name: 'Comic Sans MS' }
+    ],
+    customClasses: [
       {
         name: 'quote',
         class: 'quote',
@@ -57,7 +58,9 @@ export class CreateWebinarComponent implements OnInit {
       ['bold', 'italic'],
       ['fontSize']
     ]
-};
+  };
+  categories: any = [];
+  webinarTypes: any = [];
 
   constructor(private readonly fb: FormBuilder, private readonly adminService: AdminService,
     private readonly toasterService: ToasterService, private readonly router: Router,
@@ -66,10 +69,30 @@ export class CreateWebinarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getOptions();
     this.editId = this.activatedRoute.snapshot.queryParams.id;
     if (this.editId) {
       this.initEditForm();
     }
+  }
+
+  getOptions() {
+    // const result = this.adminService.getCategories();
+    // const result = forkJoin([categories]);
+    // console.log(result, categories);
+    this.getMultipleResponses().subscribe(response => {
+      this.categories = response[0].Items;
+      this.webinarTypes = response[1].Items;
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getMultipleResponses(): Observable<any> {
+    const categories = this.adminService.getCategories();
+    const webinarTypes = this.adminService.getWebinarTypes();
+    return forkJoin([categories, webinarTypes]);
   }
 
   initEditForm() {
@@ -133,16 +156,14 @@ export class CreateWebinarComponent implements OnInit {
   }
 
   saveWebinar() {
-    console.log(this.createWebinar.value);
     this.adminService.saveWebinar(this.createWebinar.value).subscribe(response => {
       this.toasterService.success('Webinar Saved');
     }, error => {
-      this.toasterService.error(error.message);      
+      this.toasterService.error(error.message);
     })
   }
 
   fileUpload(event: any, control: string) {
-    console.log(event.target.files[0], control);
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();

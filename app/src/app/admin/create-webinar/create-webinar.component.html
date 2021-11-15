@@ -18,8 +18,7 @@
                 <clr-select-container>
                     <label>Webinar Type:</label>
                     <select clrSelect formControlName="webinarType">
-                        <option value="upcoming">Up Coming</option>
-                        <option value="ondemand">On Demand</option>
+                        <option *ngFor="let webinarType of webinarTypes" value="{{webinarType.title}}">{{webinarType.title}}</option>
                     </select>
                 </clr-select-container>
             </div>
@@ -27,8 +26,7 @@
                 <clr-select-container>
                     <label>Category:</label>
                     <select clrSelect formControlName="category">
-                        <option value="hr">HR</option>
-                        <option value="finance">Finance</option>
+                        <option *ngFor="let category of categories" value="{{category.title}}">{{category.title}}</option>
                     </select>
                 </clr-select-container>
             </div>

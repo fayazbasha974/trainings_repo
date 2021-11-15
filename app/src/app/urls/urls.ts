@@ -12,5 +12,7 @@ export const urls = {
     gettokendetails: 'gettokendetails',
     getOrders: 'orders',
     saveCategory: 'category',
-    getCategories: 'category'
+    getCategories: 'category',
+    saveWebinarTypes: 'webinarTypes',
+    getWebinarTypes: 'webinarTypes'
 }

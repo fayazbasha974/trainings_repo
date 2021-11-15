@@ -13,6 +13,8 @@ import { ClarityModule } from '@clr/angular';
 import { AdminSideNavComponent } from './admin-side-nav/admin-side-nav.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { WebinarTypeComponent } from './webinar-type/webinar-type.component';
+import { WebinarTypeListComponent } from './webinar-type-list/webinar-type-list.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
     AdminSideNavComponent,
     CategoryComponent,
     CategoryListComponent,
+    WebinarTypeComponent,
+    WebinarTypeListComponent,
   ],
   imports: [
     CommonModule,
