@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ClarityIcons, userIcon, clockIcon, alarmClockIcon, assignUserIcon, dollarIcon, employeeIcon, eventIcon, shareIcon, microphoneIcon,headphonesIcon,errorStandardIcon } from '@cds/core/icon';
+ClarityIcons.addIcons(userIcon,clockIcon,alarmClockIcon,assignUserIcon,dollarIcon,employeeIcon,eventIcon,shareIcon,microphoneIcon,headphonesIcon,errorStandardIcon);
+
 
 @Component({
   selector: 'app-detailed-webinar',

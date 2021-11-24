@@ -1,13 +1,27 @@
-<div class="payment-div">
-  <h2>Payment Details for Dollars: {{totalPrice}}</h2>
-  <form [formGroup]="paymentForm">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" placeholder="Enter name" id="name" formControlName="name">
+<!-- <div class="payment-div">
+ 
+      
+    
+  
+</div> -->
+
+
+<div class="container">
+  <div class="clr-row">
+    <div class="clr-col-12 payment-div">
+      <div class="card payment-card">
+        <h2>Payment Details for Dollars: <span>{{totalPrice}}</span> </h2>
+        <form [formGroup]="paymentForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter name" id="name" formControlName="name">
+          </div>
+          <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+          <button class="btn btn-block btn-pay btn-success" type="submit" (click)="pay()">
+            Pay
+          </button>
+        </form>
+      </div>
     </div>
-    <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
-    <button type="submit" (click)="pay()">
-      Pay
-    </button>
-  </form>
+  </div>
 </div>

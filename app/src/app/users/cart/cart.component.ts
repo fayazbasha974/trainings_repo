@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
 
+import { ClarityIcons, userIcon, clockIcon, alarmClockIcon, assignUserIcon, dollarIcon, employeeIcon, eventIcon, shareIcon, microphoneIcon,headphonesIcon,errorStandardIcon, trashIcon } from '@cds/core/icon';
+ClarityIcons.addIcons(userIcon,clockIcon,alarmClockIcon,assignUserIcon,dollarIcon,employeeIcon,eventIcon,shareIcon,microphoneIcon,headphonesIcon,errorStandardIcon,trashIcon);
+
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',

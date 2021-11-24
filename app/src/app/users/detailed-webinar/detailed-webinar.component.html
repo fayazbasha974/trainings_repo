@@ -1,4 +1,4 @@
-<section class="detailed-webinar-details">
+<section class="detailed-webinar-details" style="display: none;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mb-4 mb-lg-0">
@@ -108,6 +108,113 @@
 
 
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="detailed-webinar-details ">
+    <div class="container">
+        <div class="clr-row">
+            <div class="clr-col-lg-9">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{webinar.webinarImageUrl}}" />
+                    </div>
+                    <div class="card-block">
+                        <h2 class="webinar-title">{{webinar.title}}</h2>
+                        <div class="clr-row webinar-infos">
+                            <div class="clr-col-lg-4">
+                                <cds-icon shape="user" size="md"></cds-icon> {{webinar.author}}
+                            </div>
+                            <div class="clr-col-lg-4">
+                                <cds-icon shape="calendar" size="md"></cds-icon> {{webinar.date}}
+                            </div>
+                            <div class="clr-col-lg-4">
+                                <cds-icon shape="clock" size="md"></cds-icon> {{webinar.pdtTime}} PDT |
+                                {{webinar.edtTime}} EDT
+                            </div>
+                            <div class="clr-col-lg-4">
+                                <cds-icon shape="alarm-clock" size="md"></cds-icon> {{webinar.duration}} MINS
+                            </div>
+                            <div class="clr-col-lg-4">
+                                <cds-icon shape="employee" size="md"></cds-icon> ID:{{webinar.id}} 
+                            </div>
+                            
+                        </div>
+                        <div class="clr-row">
+                            <div class="clr-col-lg-4">
+                                <button class="btn btn-link"><cds-icon shape="event" size="md"></cds-icon> Add To Calander</button>
+                            </div>
+                            <div class="clr-col-lg-4">
+                                <button class="btn btn-link"><cds-icon shape="share" size="md"></cds-icon> Share with Friend</button>
+                            </div>
+                        </div>
+                        <h3>Description</h3>
+                        <p>{{webinar.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clr-col-lg-3">
+               <div class="card webinar-subscription-card">
+                   <div class="card-header">
+                       <span>Webinar Price Details</span>
+                   </div>
+                   <div class="card-block" >
+                    <form clrForm clrLayout="vertical" [formGroup]="webinarForm">
+                        <div class="clr-row">
+                        <div class="clr-col-12" *ngIf="webinar.webinarType === 'upcoming'">
+                            <h5 class="webinar-sub-title mt-0"><cds-icon shape="headphones"></cds-icon> Live Webinar</h5>
+                            <clr-radio-wrapper>
+                                <input type="radio" clrRadio value="option1" formControlName="paymentFor" value="liveOneAttendeePrice" />
+                                <label>One Attendee - ${{webinar.liveOneAttendeePrice}}</label>
+                            </clr-radio-wrapper>
+                            <clr-radio-wrapper>
+                                <input type="radio" clrRadio value="option2"  formControlName="paymentFor" value="livegroupAttendeesPrice" />
+                                <label>Group Attendee - ${{webinar.livegroupAttendeesPrice}}</label>
+                            </clr-radio-wrapper>
+                        </div>
+
+
+
+
+                        <div class="clr-col-12">
+                            <h5 class="webinar-sub-title"><cds-icon shape="microphone"></cds-icon> Recorded Webinar</h5>
+                            <clr-radio-wrapper>
+                                <input type="radio" clrRadio value="option3"  formControlName="paymentFor" value="comboOneAttendeePrice" />
+                                <label>One Attendee - ${{webinar.recOneAttendeePrice}}</label>
+                            </clr-radio-wrapper>
+                            <clr-radio-wrapper>
+                                <input type="radio" clrRadio value="option4" formControlName="paymentFor" value="recgroupAttendeesPrice" />
+                                <label>Group Attendee - ${{webinar.recgroupAttendeesPrice}}</label>
+                            </clr-radio-wrapper>
+                        </div>
+
+
+                        <div class="clr-col-12" *ngIf="webinar.webinarType === 'upcoming'">
+                            <h5 class="webinar-sub-title"><cds-icon shape="headphones"></cds-icon> + <cds-icon shape="microphone"></cds-icon> Combo Webinar</h5>
+                            <clr-radio-wrapper>
+                                <input type="radio" clrRadio value="option5"  formControlName="paymentFor" value="comboOneAttendeePrice" />
+                                <label>One Attendee - ${{webinar.comboOneAttendeePrice}}</label>
+                            </clr-radio-wrapper>
+                            <clr-radio-wrapper>
+                                <input type="radio" clrRadio value="option6"  formControlName="paymentFor" value="combogroupAttendeesPrice" />
+                                <label>Group Attendee - ${{webinar.combogroupAttendeesPrice}}</label>
+                            </clr-radio-wrapper>
+                        </div>
+                        <div class="clr-col-12">
+                            <button class="btn btn-success btn-block add-cart-btn" (click)="addToCart()">Add Cart</button>
+                            <p class="error-text" *ngIf="showError">Please login to Add to Cart</p>
+                            <button class="btn btn-link btn-block"><cds-icon shape="error-standard"></cds-icon> Refund Policy</button>
+                        </div>
+                        </div>
+                        
+                    </form>
+                   </div>
+               </div>
             </div>
         </div>
     </div>

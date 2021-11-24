@@ -1,7 +1,7 @@
 <section class="popup-screen">
-    <div class="popup-card">
+    <div class="card popup-card">
         <div class="popup-header text-center">
-            <img src="assets/img/trainingsonline.svg" alt="" width="200px">
+            <img src="assets/img/trainingsonline.svg" alt="" width="150px">
         </div>
         <div class="popup-form mt-5 text-center" *ngIf="login" [formGroup]="formGroup">
                 <div class="form-group">
@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <input type="password" class="form-control" placeholder="Enter password" id="pwd" formControlName="password">
                 </div>
-                <button class="btn form-btn" (click)="submit('login')">Login</button>
+                <button class="btn form-btn btn-block btn-login btn-success" (click)="submit('login')">Login</button>
                 <div class="my-3">OR</div>
                 <p>Don't have an account? <a (click)="toggle()" class="shift-link">Register Here</a></p>
         </div>
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Company Name" id="company" formControlName="company">
                 </div>
-                <button class="btn form-btn" (click)="submit('signup')">Register</button>
+                <button class="btn form-btn btn-block btn-primary" (click)="submit('signup')">Register</button>
                 <div class="my-3">OR</div>
                 <p>If Already Register <a (click)="toggle()" class="shift-link">Login Here</a></p>
             </form>

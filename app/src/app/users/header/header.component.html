@@ -1,5 +1,5 @@
-<header>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top " style="display: none;">
         <div class="container">
             <!-- Brand -->
             <a class="navbar-brand" href="#">
@@ -47,4 +47,29 @@
             </div>
         </div>
     </nav>
-</header>
+
+
+    <nav class="user-navbar" >
+        <div class="logo-section">
+            <a href="/">
+                <img src="assets/img/trainingsonline.svg" alt="Traininngsonline Logo" width="150" class="main-logo">
+            </a>
+        </div>
+        <div class="navbar-btn" (click)="menuToggle()">
+            <cds-icon shape="bars" size="lg"></cds-icon>
+        </div>
+        <div class="navbar-list " [ngClass]="{'d-flex': btnStatus}">
+            <div class="navbar-close-btn" (click)="menuToggle()">
+                <cds-icon shape="times" size="lg"></cds-icon>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a >About Us</a></li>
+                <li><a  (click)="goToWebinarsList('upcoming')">Live Webinars</a></li>
+                <li><a  (click)="goToWebinarsList('ondemand')">Recorded Webinars</a></li>
+                <li><a routerLink="/users/contactus">Contact Us</a></li>
+                <li  *ngIf="!userConfig.data.username"><a  (click)="showLogin()"><cds-icon shape="user" solid size="md"></cds-icon> Login</a></li>
+                <li><a  (click)="goToCart()"><cds-icon shape="shopping-cart" badge="info" solid size="md"></cds-icon> {{userConfig.data.cart}} </a></li>
+            </ul>
+        </div>
+    </nav>

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 
+import { ClarityIcons, userIcon, clockIcon, alarmClockIcon, assignUserIcon, dollarIcon,filterIcon } from '@cds/core/icon';
+ClarityIcons.addIcons(userIcon,clockIcon,alarmClockIcon,assignUserIcon,dollarIcon,filterIcon);
+
 @Component({
   selector: 'app-webinars-list',
   templateUrl: './webinars-list.component.html',

@@ -1,0 +1,83 @@
+
+
+.webinar-list_card{
+    // height: 340px;
+    .webinar-img{
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    .webinar-title{
+        margin: 0px;
+        color: blueviolet;
+        font-weight: 500;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+        text-transform: capitalize;
+    }
+    .webinar-desc{
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+    .webinar-info{
+        margin-bottom: 1rem;
+        font-size: 16px;
+        div{
+            margin-bottom: 0.5rem;
+        }
+    }
+    .webinar-info-last{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .price{
+            font-size: 20px;
+            color: blueviolet;
+            font-weight: 600;
+        }
+    }
+}
+
+
+
+
+// filter section
+.filter-card-btn{
+    display: none;
+    justify-content: end;
+   @media screen and (max-width:992px) {
+       display: flex;
+   }
+}
+.webinars-filter-card{
+    .card-header{
+        background: blueviolet;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 500;
+        text-align: center;
+    }
+    .card-block{
+        .clr-form-control:first-child{
+            margin-top: 0;
+        }
+        .filter-btn{
+            margin-top: 1rem;
+        }
+    }
+    @media screen and (max-width:992px) {
+        display: none;
+    }
+}
+.clr-form-control {
+    align-items: unset;
+    input, select, ::ng-deep .clr-select-wrapper {
+        width: 100% !important;
+    }
+}

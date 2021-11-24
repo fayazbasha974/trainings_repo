@@ -16,7 +16,8 @@ import { OndemandWebinarsComponent } from './ondemand-webinars/ondemand-webinars
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
-
+import { ClarityModule } from '@clr/angular';
+import { MainFooterComponent } from './main-footer/main-footer.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +32,14 @@ import { PaymentComponent } from './payment/payment.component';
     UpcomingWebinarsComponent,
     OndemandWebinarsComponent,
     CartComponent,
-    PaymentComponent
+    PaymentComponent,
+    MainFooterComponent
   ],
   imports: [
     CommonModule,
     UsersRoutingModule,
     ReactiveFormsModule,
+    ClarityModule,
     NgxStripeModule.forRoot("pk_test_51JstDRSJaQiiuXPdWrb89ndhJE81tI0ZUATmNGqBnUr97hIFu0AuXiUpMoViLhIDjHODaJbXAJT73UuyF3yuqcxo0012oRK293")
   ]
 })
